@@ -1,13 +1,17 @@
 <div>
-    <a [routerLink]="['/basic-information']" >
-        Basic Information
+    <a [routerLink]="['/basic-information']" [queryParams]="{lang: 'en'}">
+        [ Basic Information [EN] ]
+    </a>
+
+    <a [routerLink]="['/basic-information']" [queryParams]="{lang: 'fr'}" >
+       [ Informations de base [FR] ]
     </a>
 
     <a [routerLink]="['/contact-information']" >
-        Contact Information
+        [ Contact Information ]
     </a>
 
     <a [routerLink]="['/confirmation']" >
-        Confirmation
+        [ Confirmation ]
     </a>
 </div>

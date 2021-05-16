@@ -1,11 +1,10 @@
 <form [formGroup]="formEvent" (submit)="attemptFormSubmission()">
   <div class="form-group">
-    <label for="firstName-input">First Name</label>
+    <label for="firstName-input">{{ 'firstName' | translate }}</label>
     <input formControlName="firstName" type="text" class="form-control" id="firstName-input">
   </div>
-
   <div class="form-group">
-    <label for="lastName-input">Last Name</label>
+    <label for="lastName-input">{{ 'lastName' | translate }}</label>
     <input formControlName="lastName" type="text" class="form-control" id="lastName-input">
   </div>
 

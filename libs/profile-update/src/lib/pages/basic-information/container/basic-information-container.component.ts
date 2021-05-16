@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {IUserProfile} from '@frontend-sessions/models';
 import {Observable} from 'rxjs';
 import {ProfileUpdateStoreFacade} from '../../../store/facade';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'frontend-sessions-pu-basic-container',
@@ -12,7 +13,7 @@ export class BasicInformationContainerComponent implements OnInit {
 
   profile$: Observable<IUserProfile>;
 
-  constructor(private store: ProfileUpdateStoreFacade) {}
+  constructor(private store: ProfileUpdateStoreFacade, private translateService: TranslateService) {}
 
   ngOnInit(): void {
     this.store.loadProfile();
