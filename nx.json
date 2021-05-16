@@ -11,9 +11,6 @@
     "frontend-sessions": {
       "tags": []
     },
-    "frontend-sessions-e2e": {
-      "tags": []
-    },
     "ui": {
       "tags": []
     },
@@ -25,13 +22,6 @@
     },
     "abstractions": {
       "tags": []
-    },
-    "business-test": {
-      "tags": []
-    },
-    "business-test-e2e": {
-      "tags": [],
-      "implicitDependencies": ["business-test"]
     },
     "test-lib-pub": {
       "tags": []
