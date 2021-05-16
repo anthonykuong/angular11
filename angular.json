@@ -1,38 +1,41 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "projects",
+  "newProjectRoot": "",
   "projects": {
-    "demo": {
-      "root": "",
-      "sourceRoot": "src",
+    "frontend-sessions": {
       "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/frontend-sessions",
+      "sourceRoot": "apps/frontend-sessions/src",
       "prefix": "app",
-      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/demo",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "outputPath": "dist/apps/frontend-sessions",
+            "index": "apps/frontend-sessions/src/index.html",
+            "main": "apps/frontend-sessions/src/main.ts",
+            "polyfills": "apps/frontend-sessions/src/polyfills.ts",
+            "tsConfig": "apps/frontend-sessions/tsconfig.app.json",
+            "aot": true,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "apps/frontend-sessions/src/favicon.ico",
+              "apps/frontend-sessions/src/assets"
             ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "styles": ["apps/frontend-sessions/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "apps/frontend-sessions/src/environments/environment.ts",
+                  "with": "apps/frontend-sessions/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -40,61 +43,358 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "demo:build"
+            "browserTarget": "frontend-sessions:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "demo:build:production"
+              "browserTarget": "frontend-sessions:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "demo:build"
+            "browserTarget": "frontend-sessions:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
-            "styles": [
-              "styles.css"
-            ],
-            "scripts": [],
+            "main": "apps/frontend-sessions/src/test.ts",
+            "polyfills": "apps/frontend-sessions/src/polyfills.ts",
+            "tsConfig": "apps/frontend-sessions/tsconfig.spec.json",
+            "karmaConfig": "apps/frontend-sessions/karma.conf.js",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ]
+              "apps/frontend-sessions/src/favicon.ico",
+              "apps/frontend-sessions/src/assets"
+            ],
+            "styles": ["apps/frontend-sessions/src/styles.scss"],
+            "scripts": []
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "apps/frontend-sessions/tsconfig.app.json",
+              "apps/frontend-sessions/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "ui": {
+      "projectType": "library",
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "prefix": "frontend-sessions",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui/tsconfig.lib.json",
+              "libs/ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
+            "tsConfig": "libs/ui/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "profile-update": {
+      "projectType": "library",
+      "root": "libs/profile-update",
+      "sourceRoot": "libs/profile-update/src",
+      "prefix": "frontend-sessions",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/profile-update/tsconfig.lib.json",
+              "libs/profile-update/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/profile-update/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/profile-update/jest.config.js",
+            "tsConfig": "libs/profile-update/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/profile-update/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "models": {
+      "root": "libs/models",
+      "sourceRoot": "libs/models/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/models/tsconfig.lib.json",
+              "libs/models/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/models/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/models/jest.config.js",
+            "tsConfig": "libs/models/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "abstractions": {
+      "projectType": "library",
+      "root": "libs/abstractions",
+      "sourceRoot": "libs/abstractions/src",
+      "prefix": "frontend-sessions",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/abstractions/tsconfig.lib.json",
+              "libs/abstractions/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/abstractions/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/abstractions/jest.config.js",
+            "tsConfig": "libs/abstractions/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/abstractions/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "business-test": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/business-test",
+      "sourceRoot": "apps/business-test/src",
+      "prefix": "frontend-sessions",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/business-test",
+            "index": "apps/business-test/src/index.html",
+            "main": "apps/business-test/src/main.ts",
+            "polyfills": "apps/business-test/src/polyfills.ts",
+            "tsConfig": "apps/business-test/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/business-test/src/favicon.ico",
+              "apps/business-test/src/assets"
+            ],
+            "styles": ["apps/business-test/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/business-test/src/environments/environment.ts",
+                  "with": "apps/business-test/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "business-test:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "business-test:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "business-test:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/business-test/tsconfig.app.json",
+              "apps/business-test/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/business-test/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/business-test/jest.config.js",
+            "tsConfig": "apps/business-test/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/business-test/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "business-test-e2e": {
+      "root": "apps/business-test-e2e",
+      "sourceRoot": "apps/business-test-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/business-test-e2e/cypress.json",
+            "tsConfig": "apps/business-test-e2e/tsconfig.e2e.json",
+            "devServerTarget": "business-test:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "business-test:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/business-test-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/business-test-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "test-lib-pub": {
+      "root": "libs/test-lib-pub",
+      "sourceRoot": "libs/test-lib-pub/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/test-lib-pub/tsconfig.lib.json",
+              "libs/test-lib-pub/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/test-lib-pub/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/test-lib-pub/jest.config.js",
+            "tsConfig": "libs/test-lib-pub/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/test-lib-pub",
+            "tsConfig": "libs/test-lib-pub/tsconfig.lib.json",
+            "packageJson": "libs/test-lib-pub/package.json",
+            "main": "libs/test-lib-pub/src/index.ts",
+            "assets": ["libs/test-lib-pub/*.md"]
           }
         }
       }
     }
   },
-  "defaultProject": "demo"
+  "defaultProject": "frontend-sessions",
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  }
 }

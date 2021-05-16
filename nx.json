@@ -1,0 +1,40 @@
+{
+  "npmScope": "frontend-sessions",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "frontend-sessions": {
+      "tags": []
+    },
+    "frontend-sessions-e2e": {
+      "tags": []
+    },
+    "ui": {
+      "tags": []
+    },
+    "profile-update": {
+      "tags": []
+    },
+    "models": {
+      "tags": []
+    },
+    "abstractions": {
+      "tags": []
+    },
+    "business-test": {
+      "tags": []
+    },
+    "business-test-e2e": {
+      "tags": [],
+      "implicitDependencies": ["business-test"]
+    },
+    "test-lib-pub": {
+      "tags": []
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -11,17 +11,19 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "@frontend-sessions/ui": ["libs/ui/src/index.ts"],
+      "@frontend-sessions/profile-update": ["libs/profile-update/src/index.ts"],
+      "@frontend-sessions/models": ["libs/models/src/index.ts"],
+      "@frontend-sessions/abstractions": ["libs/abstractions/src/index.ts"],
+      "@frontend-sessions/test-lib-pub": ["libs/test-lib-pub/src/index.ts"]
+    },
+    "rootDir": "."
   },
   "angularCompilerOptions": {
-    "enableIvy": true,
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
   }
 }
+
