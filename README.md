@@ -9,7 +9,13 @@ You can run any public repo on Github by providing the username + repo name like
 stackblitz.com/github/{GH_USERNAME}/{REPO_NAME}
 
 And you can also optionally specify a branch, tag, or commit:
-k
 .../github/{GH_USERNAME}/{REPO_NAME}/tree/{TAG|BRANCH|COMMIT}
 
 Automatically stays in sync with your repo#
+
+
+## Generate Deployables.
+
+ng build --prod --baseHref=https://anthonykuong.github.io/angular11/
+
+https://anthonykuong.github.io/angular11
