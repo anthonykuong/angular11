@@ -16,6 +16,6 @@ Automatically stays in sync with your repo#
 
 ## Generate Deployables.
 
-ng build --prod --baseHref=https://anthonykuong.github.io/angular11/
+ng build --prod --baseHref=https://anthonykuong.github.io/angular11/apps/frontend-sessions
 
 https://anthonykuong.github.io/angular11
