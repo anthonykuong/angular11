@@ -16,6 +16,14 @@ Automatically stays in sync with your repo#
 
 ## Generate Deployables.
 
-ng build --prod --baseHref=https://anthonykuong.github.io/angular11/apps/frontend-sessions
+First install the angular-cli-ghpages globally:
+$ npm install -g angular-cli-ghpages:
+Now use the Angular CLI with the --base-href flag to build your project and set the correct base href location::
+$ ng build --prod --base-href "" :
+Then it’s as simple as running angular-cli-ghpages. You can use the ngh shorthand::
+$ ngh 
+And done! Your app will now be hosted at
+https://anthonykuong.github.io/angular11/
 
-https://anthonykuong.github.io/angular11
+#Commands to deploy npm run deploy
+ngh

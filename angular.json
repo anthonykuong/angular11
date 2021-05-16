@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/frontend-sessions",
+            "outputPath": "dist",
             "index": "apps/frontend-sessions/src/index.html",
             "main": "apps/frontend-sessions/src/main.ts",
             "polyfills": "apps/frontend-sessions/src/polyfills.ts",
