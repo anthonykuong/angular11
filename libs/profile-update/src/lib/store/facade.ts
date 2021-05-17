@@ -9,6 +9,7 @@ import {IUserProfile} from '@frontend-sessions/models';
 export class ProfileUpdateStoreFacade {
 
   isLoading$ = this.store.pipe(select(fromSelectors.isLoading));
+  isExistingForm$ = this.store.pipe(select(fromSelectors.isExistingForm));
   profile$ = this.store.pipe(select(fromSelectors.profile));
   page$ = this.store.pipe(select(fromSelectors.page));
 

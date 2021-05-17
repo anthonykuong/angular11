@@ -10,6 +10,7 @@ export class TranslationService implements TranslateLoader {
     constructor(private http: HttpClient) { }
     getTranslation(lang: string): Observable<any> {
         const path = `${this.getRootPath()}/assets/i18n/${lang}.json`;
+        // const path = `${this.getRootPath()}/angular11/assets/i18n/${lang}.json`;
         return this.http.get(path);
     }
     getRootPath() {

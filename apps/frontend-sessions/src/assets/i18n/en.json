@@ -4,5 +4,7 @@
     "lastName" : "Last Name"
   },
   "firstName" : "First name",
-  "lastName" : "Last Name"
+  "lastName" : "Last Name",
+  "phoneNumber" : "Phone Number",
+  "email" : "Email"
 }
