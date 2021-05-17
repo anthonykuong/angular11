@@ -26,6 +26,9 @@ export class ContactInformationFormComponent extends AbstractForm {
     });
   }
 
+  // convenience getter for easy access to form fields
+  get f() { return this.formEvent.controls; }
+
   submitData(): void {
     const model = Object.assign({}, this.modelEvent);
     const form = Object.assign({}, this.raw);
