@@ -1,4 +1,5 @@
 <div class="container">
+  <h1>{{ 'basicInformation' | translate }}</h1>
   <frontend-sessions-pu-presentation-form
     *ngIf="profile$"
     [profile]="(profile$ | async)"

@@ -3,7 +3,7 @@ import {IUserProfile} from '@frontend-sessions/models';
 import {Observable} from 'rxjs';
 import {ProfileUpdateStoreFacade} from '../../../store/facade';
 import {TranslateService} from '@ngx-translate/core';
-import {tap} from "rxjs/operators";
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'frontend-sessions-pu-basic-container',

@@ -3,6 +3,7 @@
     "firstName" : "[FR] First Name",
     "lastName" : "[FR] Last Name"
   },
+  "basicInformation": "Informations de base",
   "firstName" : "Prénom",
   "lastName" : "Nom de famille",
   "phoneNumber" : "[FR]Phone Number",
