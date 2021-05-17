@@ -1,8 +1,9 @@
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {BehaviorSubject, Subject} from 'rxjs';
-import {Injector, OnDestroy, OnInit} from '@angular/core';
+import { Injector, OnDestroy, OnInit, Directive } from '@angular/core';
 import {takeUntil} from 'rxjs/operators';
 
+@Directive()
 export abstract class AbstractForm implements OnDestroy, OnInit {
   isLoading = new BehaviorSubject<boolean>(false);
   submitted = new BehaviorSubject<boolean>(false);
