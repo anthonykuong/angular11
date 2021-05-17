@@ -24,8 +24,12 @@
             "tsConfig": "apps/frontend-sessions/tsconfig.app.json",
             "aot": true,
             "assets": [
+              {
+                "input" : "apps/frontend-sessions/src/assets",
+                "glob": "**/*",
+                "output": "./assets"
+              },
               "apps/frontend-sessions/src/favicon.ico",
-              "apps/frontend-sessions/src/assets"
             ],
             "styles": ["apps/frontend-sessions/src/styles.scss"],
             "scripts": []
