@@ -1,2 +1,21 @@
-<div><p>GAME OVER</p></div>
+<div><p>GAME SCORE</p>
+<h2>{{this.percent}} %</h2>
+<table class="table">
+    <thead>
+    <tbody>
+    <tr>
+        <th scope="row">Total Questions</th>
+        <td>{{totalQuestionCount}}</td>
+    </tr>
+    <tr>
+        <th scope="row">Correct Answers</th>
+        <td>{{correctAnswerCount}}</td>
+    </tr>
+    <tr>
+        <th scope="row">Incorrect Answers</th>
+        <td>{{incorrectAnswerCount}}</td>
+    </tr>
+    </tbody>
+</table>
+</div>
 <div><button (click)="onNewGame()">New Game</button></div>
