@@ -15,6 +15,17 @@
     <option *ngFor="let difficulty of difficulties" [value]="difficulty">{{difficulty}}</option>
   </select>
 </div>
+
+<div class = "subtitle">
+  Select Number of Questions
+</div>
+<div>
+  <select [(ngModel)]="selectedAmount" id="difficulty">
+    <option *ngFor="let numQuestion of numberOfQuestions" [value]="numQuestion">{{numQuestion}}</option>
+  </select>
+</div>
+
+
 <div>
   <button (click)="onStart()" id="start">Start!</button>
 </div>

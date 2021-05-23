@@ -31,9 +31,10 @@ export class TriviaGameService {
 
   }
 
-  startNewGame(categoryId: number, difficulty: string) {
+  startNewGame(categoryId: number, difficulty: string, amount: number) {
 
-    this.getQuestions(categoryId, difficulty).subscribe((res) => {
+    // const amount = 10;
+    this.getQuestions(categoryId, difficulty, amount).subscribe((res) => {
       this.currentGame = new TriviaGame(res);
       this.router.navigate(['trivia/question'], {relativeTo: this.route});
       this.currentGame.gameOver$.subscribe(() => this.router.navigate(['trivia/game-over'], {relativeTo: this.route}));
@@ -45,10 +46,9 @@ export class TriviaGameService {
     return this.httpClient.get(this.TRIVIA_CATEGORIES_URL).pipe(map((res: TriviaCategoryResponse) => res.trivia_categories));
   }
 
-  getQuestions(categoryId?: number, difficulty?: string): Observable<TriviaQuestion[]> {
+  getQuestions(categoryId?: number, difficulty?: string, amount ?: number): Observable<TriviaQuestion[]> {
 
     const type = 'multiple'; // only want multiple choice for v.1
-    const amount = 10;
     const encoding = 'base64';
 
     let params = new HttpParams();

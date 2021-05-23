@@ -11,6 +11,7 @@ import {environment} from '../environments/environment';
 import {StoreRouterConnectingModule} from '@ngrx/router-store';
 import { AppComponent } from './app.component';
 import {TranslationRootModule} from './module/translation/translation-root.module';
+import {LandingComponent} from './landing/landing.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,7 @@ import {TranslationRootModule} from './module/translation/translation-root.modul
     }),
     StoreRouterConnectingModule.forRoot(),
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, LandingComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
