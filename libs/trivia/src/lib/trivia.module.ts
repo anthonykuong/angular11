@@ -13,7 +13,9 @@ import {FormsModule} from '@angular/forms';
   imports: [
     TriviaRoutingModuleRouting,
     HttpClientModule,
-    FormsModule],
+    FormsModule,
+    CommonModule
+  ],
   declarations: [
       StartScreenComponent,
     QuestionScreenComponent,

@@ -36,9 +36,9 @@ export class TriviaGameService {
     this.getQuestions(categoryId, difficulty).subscribe((res) => {
 
       this.currentGame = new TriviaGame(res);
-      this.router.navigate(['/question'], {relativeTo: this.route});
+      this.router.navigate(['trivia/question'], {relativeTo: this.route});
 
-      this.currentGame.gameOver$.subscribe(() => this.router.navigate(['/game-over'], {relativeTo: this.route}));
+      this.currentGame.gameOver$.subscribe(() => this.router.navigate(['trivia/game-over'], {relativeTo: this.route}));
     });
   }
 
