@@ -25,6 +25,9 @@
     },
     "test-lib-pub": {
       "tags": []
+    },
+    "trivia": {
+      "tags": []
     }
   }
 }
