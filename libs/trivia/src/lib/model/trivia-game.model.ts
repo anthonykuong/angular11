@@ -28,6 +28,9 @@ export class TriviaGame {
 
   currentLife = 3;
   correctAnswerCount = 0;
+  incorrectAnswerCount = 0;
+  totalQuestionCount = 0;
+
   readonly gameOver$ = new Subject();
   readonly questions$ = new Subject<TriviaQuestion>();
   readonly life$ = new Subject<number>();
@@ -39,6 +42,9 @@ export class TriviaGame {
 
     this.questionsIterator = questions[Symbol.iterator]();
     this.currentQuestion = this.questionsIterator.next().value;
+    this.totalQuestionCount = this.questions.length;
+
+
   }
 
   submitAnswer(answer: string) {
@@ -48,7 +54,7 @@ export class TriviaGame {
       this.correctAnswerCount++;
     }
     else {
-
+      this.incorrectAnswerCount ++;
       this.currentLife--;
       this.life$.next(this.currentLife);
     }
@@ -60,6 +66,12 @@ export class TriviaGame {
     else {
 
       this.currentQuestion = this.questionsIterator.next().value;
+
+      if(!this.currentQuestion){
+        console.log("no more questions");
+        this.gameOver$.next();
+      }
+
       this.questions$.next(this.currentQuestion);
     }
   }

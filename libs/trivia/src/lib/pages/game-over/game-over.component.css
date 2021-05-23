@@ -3,12 +3,19 @@ p{
     font-weight: bold;
     font-size: 5em;
     text-align: center;
-    padding-bottom: 5em;
+    padding: 0;
 }
 
 div{
     text-align: center;
     margin: auto;
+}
+
+h2{
+    text-align: center;
+    margin-bottom:5%;
+    padding-bottom:0px;
+    font-size: 10em;
 }
 
 button{
