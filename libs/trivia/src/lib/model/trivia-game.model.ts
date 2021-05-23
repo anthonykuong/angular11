@@ -54,9 +54,14 @@ export class TriviaGame {
       this.correctAnswerCount++;
     }
     else {
+      alert('Sorry. Your answer is incorrect. The correct answer is ' + this.currentQuestion.correct_answer +  '. Life Meter Count decreased');
       this.incorrectAnswerCount ++;
       this.currentLife--;
       this.life$.next(this.currentLife);
+      if (this.currentLife === 1) {
+        alert('Warning - If you get the next question wrong, the game will be over for you since your life meter current life will be 0');
+      }
+
     }
 
     if (this.currentLife === 0) {
@@ -68,7 +73,7 @@ export class TriviaGame {
       this.currentQuestion = this.questionsIterator.next().value;
 
       if(!this.currentQuestion){
-        console.log("no more questions");
+        console.log('no more questions');
         this.gameOver$.next();
       }
 
