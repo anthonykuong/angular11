@@ -17,7 +17,8 @@
       "@frontend-sessions/profile-update": ["libs/profile-update/src/index.ts"],
       "@frontend-sessions/models": ["libs/models/src/index.ts"],
       "@frontend-sessions/abstractions": ["libs/abstractions/src/index.ts"],
-      "@frontend-sessions/test-lib-pub": ["libs/test-lib-pub/src/index.ts"]
+      "@frontend-sessions/test-lib-pub": ["libs/test-lib-pub/src/index.ts"],
+      "@frontend-sessions/trivia": ["libs/trivia/src/index.ts"]
     },
     "rootDir": "."
   },
@@ -26,4 +27,3 @@
     "strictInjectionParameters": true
   }
 }
-
