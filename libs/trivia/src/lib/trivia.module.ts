@@ -7,6 +7,7 @@ import {StartScreenComponent} from './pages/start-screen/start-screen.component'
 import {TriviaRoutingModuleRouting} from './trivia-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {TriviaComponent} from './trivia.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {FormsModule} from '@angular/forms';
     CommonModule
   ],
   declarations: [
+    TriviaComponent,
       StartScreenComponent,
     QuestionScreenComponent,
     GameOverComponent,

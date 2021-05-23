@@ -15,6 +15,6 @@ export class GameOverComponent implements OnInit {
 
   onNewGame() {
 
-    this.router.navigate(['/'], {relativeTo: this.route});
+    this.router.navigate(['trivia/start'], {relativeTo: this.route});
   }
 }
