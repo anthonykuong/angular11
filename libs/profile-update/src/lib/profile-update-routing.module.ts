@@ -15,9 +15,13 @@ const routes: Routes = [{
     }, {
     path: 'confirmation',
       loadChildren: () => import('../lib/pages/update-confirmation/update-confirmation.module').then(m => m.UpdateConfirmationModule)
-    }
+    },
+    {path: '', redirectTo:'basic-information', pathMatch:'full'}
   ]
-}];
+},
+
+
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
