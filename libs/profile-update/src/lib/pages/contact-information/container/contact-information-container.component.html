@@ -1,8 +1,11 @@
 <div class="container">
+  <h1>Contact Information</h1>
   <frontend-sessions-pu-contact-presentation-form
     *ngIf="profile$"
     [profile]="(profile$ | async)"
     (event)="updateProfile($event)"
   >
   </frontend-sessions-pu-contact-presentation-form>
+
+  <frontend-sessions-links></frontend-sessions-links>
 </div>

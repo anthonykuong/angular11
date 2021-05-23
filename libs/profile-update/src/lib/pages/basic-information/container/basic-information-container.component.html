@@ -1,8 +1,11 @@
 <div class="container">
+  <h1>{{ 'basicInformation' | translate }}</h1>
   <frontend-sessions-pu-presentation-form
     *ngIf="profile$"
     [profile]="(profile$ | async)"
     (event)="updateProfile($event)"
   >
   </frontend-sessions-pu-presentation-form>
+
+  <frontend-sessions-links></frontend-sessions-links>
 </div>

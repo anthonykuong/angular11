@@ -1,5 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
+import {TranslateModule} from '@ngx-translate/core';
+import {TranslationRootModule} from './module/translation/translation-root.module';
 
 export const routes: Routes = [{
   path: '',
@@ -7,7 +9,7 @@ export const routes: Routes = [{
 }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), TranslateModule, TranslationRootModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

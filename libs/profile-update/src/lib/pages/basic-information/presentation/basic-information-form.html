@@ -1,13 +1,23 @@
-<form [formGroup]="formEvent" (submit)="attemptFormSubmission()">
+<form [formGroup]="formEvent" >
   <div class="form-group">
-    <label for="firstName-input">First Name</label>
-    <input formControlName="firstName" type="text" class="form-control" id="firstName-input">
+    <label for="firstName-input">{{ 'firstName' | translate }}
+    </label>
+    <input formControlName="firstName" type="text" class="form-control" id="firstName-input"
+           [ngClass]="{ 'is-invalid': (submitted | async ) && f.firstName.errors }"
+    >
+    <div *ngIf="(submitted | async )  && f.firstName.errors" class="invalid-feedback">
+      <div *ngIf="f.firstName.errors.required">First Name is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastName-input">{{ 'lastName' | translate }}</label>
+    <input formControlName="lastName" type="text" class="form-control" id="lastName-input"
+           [ngClass]="{ 'is-invalid': (submitted | async ) && f.lastName.errors }"
+    >
+    <div *ngIf="(submitted | async ) && f.lastName.errors" class="invalid-feedback">
+      <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+    </div>
   </div>
 
-  <div class="form-group">
-    <label for="lastName-input">Last Name</label>
-    <input formControlName="lastName" type="text" class="form-control" id="lastName-input">
-  </div>
-
-  <button type="submit" class="btn btn-primary">Next</button>
+  <button type="submit" class="btn btn-primary" (click)="attemptFormSubmission()">Next</button>
 </form>

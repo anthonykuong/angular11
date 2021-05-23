@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {IUserProfile} from '@frontend-sessions/models';
 import {ProfileUpdateStoreFacade} from '../../../store/facade';
+import {PROFILE_UPDATE_PAGE} from "../../../models/profile-update.models";
 
 @Component({
   selector: 'frontend-sessions-pu-confirmation-container',
@@ -16,6 +17,7 @@ export class UpdateConfirmationContainerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.store.setPage(PROFILE_UPDATE_PAGE.COMPLETE)
     this.profile$ = this.store.profile$;
   }
 

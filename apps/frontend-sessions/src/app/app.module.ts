@@ -10,12 +10,14 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
 import {StoreRouterConnectingModule} from '@ngrx/router-store';
 import { AppComponent } from './app.component';
+import {TranslationRootModule} from './module/translation/translation-root.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    TranslationRootModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
     RouterModule.forRoot(routes, {

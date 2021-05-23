@@ -8,18 +8,21 @@ export const featureKey = 'profile-update';
 export interface IProfileUpdateState extends IFeatureState {
   profile: IUserProfile;
   page: PROFILE_UPDATE_PAGE;
+  isExistingForm: false;
 }
 
 export const initialState: IProfileUpdateState = {
   profile: InitialUserProfile,
   page: PROFILE_UPDATE_PAGE.BASIC,
-  isLoading: false
+  isLoading: false,
+  isExistingForm: false,
 };
 
 export const profileUpdateReducer = createReducer(
   initialState,
   on(fromActions.loadProfile, (state) => ({
-    ...initialState
+    ...initialState,
+    isExistingForm: true,
   })),
   on(fromActions.updateProfile, (state, {profile}) => ({
     ...state,
@@ -36,6 +39,10 @@ export const profileUpdateReducer = createReducer(
     error,
     isLoading: false,
   })),
+    on(fromActions.setPage, (state, {page}) => ({
+      ...state,
+      page:page,
+    })),
 );
 
 export function reducer(state: IProfileUpdateState | undefined, action: Action) {
