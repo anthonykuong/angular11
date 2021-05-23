@@ -6,7 +6,7 @@ import {TriviaCategory} from '../../model/trivia-game.model';
 @Component({
   selector: 'frontend-sessions-start-screen',
   templateUrl: './start-screen.component.html',
-  styleUrls: ['./start-screen.component.css']
+  styleUrls: ['./start-screen.component.scss']
 })
 export class StartScreenComponent implements OnInit {
 

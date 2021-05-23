@@ -4,29 +4,14 @@ import {StartScreenComponent} from './pages/start-screen/start-screen.component'
 import {QuestionScreenComponent} from './pages/question-screen/question-screen.component';
 import {GameOverComponent} from './pages/game-over/game-over.component';
 
-const routes: Routes = [{
-  path: '',
-  component: StartScreenComponent,
-  children: [
-    {
-      path: 'start',
-      component: StartScreenComponent
-    }, {
-      path: 'question',
-      component: QuestionScreenComponent
-    }, {
-    path: 'game-over',
-      component: GameOverComponent
-    },
-    {path: '', redirectTo: 'start', pathMatch: 'full'}
-  ]
-},
-
-
+const triviaRoutes: Routes = [
+  {path: 'question', component: QuestionScreenComponent},
+  {path: 'game-over', component: GameOverComponent},
+  {path: '**', component: StartScreenComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(triviaRoutes)],
   exports: [RouterModule]
 })
 export class TriviaRoutingModuleRouting {

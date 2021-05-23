@@ -17,6 +17,7 @@ export class QuestionScreenComponent implements OnInit {
 
   ngOnInit() {
 
+
     this.question = this.triviaGameService.currentGame.currentQuestion;
 
     this.triviaGameService.currentGame.questions$.subscribe(question => this.question = question);

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-life-meter',
+  selector: 'frontend-sessions-life-meter',
   templateUrl: './life-meter.component.html',
   styleUrls: ['./life-meter.component.css']
 })

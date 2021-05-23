@@ -23,15 +23,15 @@ export class ProfileUpdateComponent implements OnInit {
   private _routePage(page: PROFILE_UPDATE_PAGE): void {
     switch (page) {
       case PROFILE_UPDATE_PAGE.BASIC: {
-        this.router.navigate(['basic-information']);
+        this.router.navigate(['profile/basic-information']);
         break;
       }
       case PROFILE_UPDATE_PAGE.CONTACT: {
-        this.router.navigate(['contact-information']);
+        this.router.navigate(['profile/contact-information']);
         break;
       }
       case PROFILE_UPDATE_PAGE.COMPLETE: {
-        this.router.navigate(['confirmation']);
+        this.router.navigate(['profile/confirmation']);
         break;
       }
       default: {break; }
