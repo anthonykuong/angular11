@@ -16,8 +16,14 @@ export class StartScreenComponent implements OnInit {
     'medium',
     'hard'
   ];
+  numberOfQuestions = [
+    1,
+    2,
+    5,
+    10];
   selectedCategoryId: number;
   selectedDifficulty = 'easy';
+  selectedAmount = 5;
 
   constructor(private triviaGameService: TriviaGameService) { }
 
@@ -32,6 +38,6 @@ export class StartScreenComponent implements OnInit {
 
   onStart() {
 
-    this.triviaGameService.startNewGame(this.selectedCategoryId, this.selectedDifficulty);
+    this.triviaGameService.startNewGame(this.selectedCategoryId, this.selectedDifficulty, this.selectedAmount);
   }
 }

@@ -2,12 +2,12 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
 import {TranslationRootModule} from './module/translation/translation-root.module';
-import {AppComponent} from './app.component';
+import {LandingComponent} from './landing/landing.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: AppComponent
+    component: LandingComponent
   },
     {
     path: 'profile',
