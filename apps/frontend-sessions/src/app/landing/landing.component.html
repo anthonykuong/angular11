@@ -1,0 +1,20 @@
+<div class="center">
+<h1>Landing Page</h1>
+<ul>
+    <button class="btn btn-outline-primary">
+        <a [routerLink]="['/trivia/start']" [queryParams]="{lang: 'en'}">
+            Trivia Game
+        </a>
+    </button>
+
+    <button class="btn btn-outline-primary">
+        <a [routerLink]="['/profile/basic-information']" [queryParams]="{lang: 'en'}">
+            Profile
+        </a>
+    </button>
+
+
+</ul>
+    <h2>  &copy; <em id="date"></em>Anthony Ku Ong ( {{year}} )</h2>
+</div>
+
