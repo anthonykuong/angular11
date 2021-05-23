@@ -39,6 +39,10 @@ export const profileUpdateReducer = createReducer(
     error,
     isLoading: false,
   })),
+    on(fromActions.setPage, (state, {page}) => ({
+      ...state,
+      page:page,
+    })),
 );
 
 export function reducer(state: IProfileUpdateState | undefined, action: Action) {

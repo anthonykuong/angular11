@@ -19,6 +19,10 @@ export class ProfileUpdateStoreFacade {
     this.store.dispatch(fromActions.loadProfile());
   }
 
+  setPage( page):void{
+    this.store.dispatch(fromActions.setPage({page}));
+  }
+
   updateProfile(profile: IUserProfile): void {
     this.store.dispatch(fromActions.updateProfile({profile}));
   }

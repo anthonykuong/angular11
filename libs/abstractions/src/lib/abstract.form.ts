@@ -2,9 +2,11 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {BehaviorSubject, Subject} from 'rxjs';
 import { Injector, OnDestroy, OnInit, Directive } from '@angular/core';
 import {takeUntil} from 'rxjs/operators';
+import {ProfileUpdateStoreFacade} from "../../../profile-update/src/lib/store/facade";
 
 @Directive()
 export abstract class AbstractForm implements OnDestroy, OnInit {
+  store: ProfileUpdateStoreFacade
   isLoading = new BehaviorSubject<boolean>(false);
   submitted = new BehaviorSubject<boolean>(false);
 
@@ -20,6 +22,7 @@ export abstract class AbstractForm implements OnDestroy, OnInit {
 
   protected constructor(injector: Injector) {
     this.formBuilder = injector.get(FormBuilder);
+    this.store = injector.get(ProfileUpdateStoreFacade);
   }
 
   ngOnInit() {

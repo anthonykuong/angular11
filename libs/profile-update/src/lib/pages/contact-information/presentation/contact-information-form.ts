@@ -2,6 +2,7 @@ import {Component, EventEmitter, Injector, Input, Output} from '@angular/core';
 import {IUserProfile} from '@frontend-sessions/models';
 import {AbstractForm} from '@frontend-sessions/abstractions';
 import {Validators} from '@angular/forms';
+import {PROFILE_UPDATE_PAGE} from "../../../models/profile-update.models";
 
 @Component({
   selector: 'frontend-sessions-pu-contact-presentation-form',
@@ -21,8 +22,8 @@ export class ContactInformationFormComponent extends AbstractForm {
   initForm(): void {
     this.modelEvent = this.profile;
     this.formEvent = this.formBuilder.group({
-      email: [this.modelEvent.email, Validators.required],
-      phoneNumber: [this.modelEvent.phoneNumber, Validators.required]
+      email: [this.modelEvent.email],
+      phoneNumber: [this.modelEvent.phoneNumber]
     });
   }
 
@@ -42,4 +43,7 @@ export class ContactInformationFormComponent extends AbstractForm {
   submissionError(err: string): void {
   }
 
+  back() {
+    this.store.setPage(PROFILE_UPDATE_PAGE.BASIC)
+  }
 }
