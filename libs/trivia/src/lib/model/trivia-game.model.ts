@@ -21,6 +21,7 @@ export interface TriviaQuestion {
   question: string;
   correct_answer: string;
   incorrect_answers: string[];
+  shuffled_answers: string[];
 }
 
 
@@ -42,9 +43,24 @@ export class TriviaGame {
 
     this.questionsIterator = questions[Symbol.iterator]();
     this.currentQuestion = this.questionsIterator.next().value;
+    this.createCurrentAnswers();
     this.totalQuestionCount = this.questions.length;
+  }
+  createCurrentAnswers(){
+    this.currentQuestion.shuffled_answers = [];
+    this.currentQuestion.shuffled_answers.push(this.currentQuestion.correct_answer);
+    this.currentQuestion.shuffled_answers.push(this.currentQuestion.incorrect_answers[0]);
+    this.currentQuestion.shuffled_answers.push(this.currentQuestion.incorrect_answers[1]);
+    this.currentQuestion.shuffled_answers.push(this.currentQuestion.incorrect_answers[2]);
+    this.shuffleArray(this.currentQuestion.shuffled_answers);
+  }
 
-
+  /* Randomize array in-place using Durstenfeld shuffle algorithm */
+  shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
   }
 
   submitAnswer(answer: string) {
@@ -71,13 +87,14 @@ export class TriviaGame {
     else {
 
       this.currentQuestion = this.questionsIterator.next().value;
-
       if(!this.currentQuestion){
         console.log('no more questions');
         this.gameOver$.next();
+      } else {
+        this.createCurrentAnswers();
+        this.shuffleArray(this.currentQuestion.shuffled_answers);
+        this.questions$.next(this.currentQuestion);
       }
-
-      this.questions$.next(this.currentQuestion);
     }
   }
 }

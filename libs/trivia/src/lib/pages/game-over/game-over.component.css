@@ -1,3 +1,9 @@
+* {
+    background-color: #23252d;
+    color: #42f4ee;
+    font-family: monospace;
+}
+
 p{
     font-family: Helvetica, sans-serif;
     font-weight: bold;
