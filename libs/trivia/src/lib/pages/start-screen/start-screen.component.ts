@@ -19,8 +19,17 @@ export class StartScreenComponent implements OnInit {
   numberOfQuestions = [
     1,
     2,
+    3,
+    4,
     5,
-    10];
+    10,
+    12,
+    15,
+    17,
+    20,
+    22,
+    25,
+    30];
   selectedCategoryId: number;
   selectedDifficulty = 'easy';
   selectedAmount = 5;
