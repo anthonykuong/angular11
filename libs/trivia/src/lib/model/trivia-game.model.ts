@@ -50,8 +50,10 @@ export class TriviaGame {
     this.currentQuestion.shuffled_answers = [];
     this.currentQuestion.shuffled_answers.push(this.currentQuestion.correct_answer);
     this.currentQuestion.shuffled_answers.push(this.currentQuestion.incorrect_answers[0]);
-    this.currentQuestion.shuffled_answers.push(this.currentQuestion.incorrect_answers[1]);
-    this.currentQuestion.shuffled_answers.push(this.currentQuestion.incorrect_answers[2]);
+    if (this.currentQuestion.incorrect_answers.length > 1) {
+      this.currentQuestion.shuffled_answers.push(this.currentQuestion.incorrect_answers[1]);
+      this.currentQuestion.shuffled_answers.push(this.currentQuestion.incorrect_answers[2]);
+    }
     this.shuffleArray(this.currentQuestion.shuffled_answers);
   }
 

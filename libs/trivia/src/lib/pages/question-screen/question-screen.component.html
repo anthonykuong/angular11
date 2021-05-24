@@ -8,10 +8,11 @@
 <div class="question">Q: {{question.question}}</div>
 
 
-<div><button class="answer" (click)="chooseAnswer(question.shuffled_answers[0])">A) {{question.shuffled_answers[0]}}</button></div>
-<div><button class="answer" (click)="chooseAnswer(question.shuffled_answers[1])">B) {{question.shuffled_answers[1]}}</button></div>
-<div><button class="answer" (click)="chooseAnswer(question.shuffled_answers[2])">C) {{question.shuffled_answers[2]}}</button></div>
-<div><button class="answer" (click)="chooseAnswer(question.shuffled_answers[3])">D) {{question.shuffled_answers[3]}}</button></div>
+
+<li *ngFor="let answer of question.shuffled_answers; index as i;">
+  <div><button class="answer" (click)="chooseAnswer(answer)"> {{i +1 }}) {{answer}}</button></div>
+</li>
+
 
 <div *ngIf="chosenAnswer">My guess: "{{chosenAnswer}}"</div>
 <div></div>
