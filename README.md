@@ -5,10 +5,10 @@ The site can be accessed here: https://anthonykuong.github.io/angular11/
 - The Trivia game can be found by going to
 https://anthonykuong.github.io/angular11/#/trivia/start?lang=en
 
-- The Profile EN app can be found by going to
+- The Profile English app can be found by going to
   https://anthonykuong.github.io/angular11/#/profile/basic-information?lang=en
 
-- The Profile FR app can be found by going to
+- The Profile French app can be found by going to
   https://anthonykuong.github.io/angular11/#/profile/basic-information?lang=fr
 
 
