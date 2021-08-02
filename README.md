@@ -1,6 +1,38 @@
 # angular store example
 
+The site can be accessed here: https://anthonykuong.github.io/angular11/
+
+- The Trivia game can be found by going to
+https://anthonykuong.github.io/angular11/#/trivia/start?lang=en
+
+- The Profile EN app can be found by going to
+  https://anthonykuong.github.io/angular11/#/profile/basic-information?lang=en
+
+- The Profile FR app can be found by going to
+  https://anthonykuong.github.io/angular11/#/profile/basic-information?lang=fr
+
+
+
+
+npm run start
+``
+
+- The Landing page is found locally by opening a browser to
+http://localhost:4200/#/
+
+- The Trivia App is found by going to
+  http://localhost:4200/#/trivia/start?lang=en
+  
+- The Profile app is found by going to
+  http://localhost:4200/#/profile
+  
+
+
+
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-ivy-medx2s)
+
+
+
 
 https://stackblitz.com/github/anthonykuong/angular11
 
