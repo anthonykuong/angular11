@@ -1,4 +1,19 @@
-# angular store example
+# https://anthonykuong.github.io/angular11/
+
+## Trivia Game
+
+- https://anthonykuong.github.io/angular11/#/trivia/start?lang=en
+
+
+This triva game is using Open Trivia Database: https://opentdb.com/  >  It is a free to use, user-contributed trivia question database
+where you can add new questions. The Open Trivia Database provides a completely free JSON API for use in programming projects. Use of this API does not require a API Key, 
+just generate the URL below use it in your own application to retrieve trivia question https://opentdb.com/api_config.php
+
+
+## Profile Game
+
+- https://anthonykuong.github.io/angular11/#/profile/basic-information
+
 
 The site can be accessed here: https://anthonykuong.github.io/angular11/
 
