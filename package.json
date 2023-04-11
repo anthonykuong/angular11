@@ -28,9 +28,6 @@
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
   },
   "private": false,
-  "publishConfig": {
-    "registry": "http://rbcnexus.fg.rbc.com:8081/nexus/content/repositories/ue90-npm/"
-  },
   "dependencies": {
     "@angular/animations": "~10.2.5",
     "@angular/common": "~10.2.5",
